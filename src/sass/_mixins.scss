@@ -1,0 +1,39 @@
+@mixin btn($padding, $margin) {
+  border: 0;
+  padding: $padding;
+  outline: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3rem;
+  color: white;
+  margin: $margin;
+  background: linear-gradient(
+    to bottom right,
+    $primaryColor 50%,
+    $tertiaryColor 100%
+  );
+  transition: 0.4s all ease;
+  position: relative;
+  &:hover::before {
+    transform: scale(1.5);
+    opacity: 0;
+    z-index: 1;
+  }
+  &:hover {
+    box-shadow: 0.1rem 0.1rem 0.5rem $primaryColor;
+    transform: translateY(-1rem);
+  }
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $primaryColor;
+    position: absolute;
+    border-radius: inherit;
+    z-index: -1;
+    transition: 0.4s all;
+    display: inline-block;
+  }
+}
