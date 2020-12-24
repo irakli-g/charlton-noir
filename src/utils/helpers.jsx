@@ -7,3 +7,9 @@ export const featuredRooms = data.filter((item) => {
 export const allRooms = data.map((item) => {
   return item;
 });
+
+const types = data.map((item) => {
+  return item.fields.type;
+});
+
+export const uniqueTypes = ["all", ...new Set(types)];
