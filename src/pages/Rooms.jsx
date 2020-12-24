@@ -14,6 +14,9 @@ const Rooms = ({ filteredRooms }) => {
           return <Room key={index} {...item} />;
         })}
       </section>
+      {filteredRooms.length < 1 && (
+        <h2 className="noMatch-heading">No rooms match your search.</h2>
+      )}
     </main>
   );
 };

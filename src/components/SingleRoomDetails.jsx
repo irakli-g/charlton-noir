@@ -28,7 +28,7 @@ export const SingleRoomDetails = ({
         <div className="singleRoomDetails-info">
           <h2 className="info-heading">Info</h2>
           <h5 className="info-content">
-            Price: <span>$ {price}</span>
+            Price: <span>$ {Number(price).toFixed(2)}</span>
           </h5>
           <h5 className="info-content">
             Size: <span> {size} SQFT</span>
