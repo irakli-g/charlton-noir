@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const FeaturedRooms = ({ featuredRooms }) => {
   return (
     <section id="featuredRooms">
-      <h2 className="featuredRooms-heading">Feauted Rooms</h2>
+      <h2 className="featuredRooms-heading">Feautred Rooms</h2>
       <div className="featuredRooms-container">
         {featuredRooms.map((item, index) => {
           const { price, slug, name, extras, images } = item.fields;
