@@ -13,14 +13,22 @@ body {
 html {
   font-size: 62.5%;
 }
-
-header {
+#root {
+  position: relative;
+}
+.main-navigation.fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+.main-navigation {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 2rem 5rem;
   box-shadow: 0.1rem 0.1rem 1rem darkslategray;
   background-color: white;
+  transition: 0.4s all;
   & a {
     color: black;
     text-decoration: 0;
@@ -560,4 +568,49 @@ footer {
   font-size: 3rem;
   font-family: "Playfair Display", serif;
   margin-bottom: 20rem;
+}
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & figure {
+    width: 50%;
+    & img {
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+.message {
+  position: fixed;
+  background-color: rgba(black, 0.6);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: 0.4s all;
+  visibility: hidden;
+  opacity: 0;
+  & .message-container {
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 1rem darkgray;
+    padding: 3rem 2rem;
+    width: 30%;
+    font-size: 1.5rem;
+    & .btn {
+      @include btn(2rem 4rem, 2rem 0 0 0);
+    }
+  }
+}
+.message.show {
+  visibility: visible;
+  opacity: 1;
 }

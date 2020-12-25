@@ -1,23 +1,28 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import Rooms from "./pages/Rooms";
-import SingleRoom from "./pages/SingleRoom";
-import { Error } from "./pages/Error";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import Loading from "./components/Loading";
+import Message from "./components/Message";
+const Home = lazy(() => import("./pages/Home"));
+const Rooms = lazy(() => import("./pages/Rooms"));
+const SingleRoom = lazy(() => import("./pages/SingleRoom"));
+const Error = lazy(() => import("./pages/Error"));
 
 function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/rooms" exact element={<Rooms />} />
-        <Route path="/rooms/:slug" exact element={<SingleRoom />} />
-        <Route path="*" exact element={<Error />} />
-      </Routes>
+      <Message />
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/rooms" exact element={<Rooms />} />
+          <Route path="/rooms/:slug" exact element={<SingleRoom />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </>
   );

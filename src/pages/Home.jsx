@@ -1,14 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Showcase } from "../components/Showcase";
 import { Services } from "../components/Services";
-import FeaturedRooms from "../components/FeaturedRooms";
+import Loading from "../components/Loading";
+const FeaturedRooms = lazy(() => import("../components/FeaturedRooms"));
 
-export const Home = () => {
+const Home = () => {
   return (
     <main>
       <Showcase />
       <Services />
-      <FeaturedRooms />
+      <Suspense fallback={<Loading />}>
+        <FeaturedRooms />
+      </Suspense>
     </main>
   );
 };
+
+export default Home;

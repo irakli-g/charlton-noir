@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Error = () => {
+const Error = () => {
   return (
     <main id="error">
       <h1 className="error-heading">404 Page Not found</h1>
@@ -11,3 +11,5 @@ export const Error = () => {
     </main>
   );
 };
+
+export default Error;
